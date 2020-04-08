@@ -1,12 +1,12 @@
-package array_queue_test
+package queue_test
 
 import (
-	"datastures/queue/array_queue"
+	queue2 "datastures/queue"
 	"testing"
 )
 
 func TestNewQueue(t *testing.T) {
-	queue := array_queue.NewQueue(20)
+	queue := queue2.NewArrayQueue(20)
 
 	for i := 0; i < 10; i++ {
 		queue.Enqueue(i)
@@ -24,7 +24,7 @@ func TestNewQueue(t *testing.T) {
 }
 
 func TestQueueOverflow(t *testing.T) {
-	queue := array_queue.NewQueue(2)
+	queue := queue2.NewArrayQueue(2)
 	queue.Enqueue(1)
 	queue.Enqueue(2)
 	err := queue.Enqueue(3)
@@ -35,7 +35,7 @@ func TestQueueOverflow(t *testing.T) {
 }
 
 func TestQueueUnderflow(t *testing.T) {
-	queue := array_queue.NewQueue(2)
+	queue := queue2.NewArrayQueue(2)
 	queue.Enqueue(1)
 	queue.Enqueue(2)
 	queue.Dequeue()
