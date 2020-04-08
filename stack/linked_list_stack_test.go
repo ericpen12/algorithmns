@@ -5,8 +5,8 @@ import (
 	"testing"
 )
 
-func TestNewStack(t *testing.T) {
-	s := stack.NewStack(20)
+func TestNewLinkStack(t *testing.T) {
+	s := stack.NewLinkStack(20)
 	s.Push(10)
 	s.Push(120)
 	s.Push(101)
@@ -17,8 +17,8 @@ func TestNewStack(t *testing.T) {
 	}
 }
 
-func TestStackOverflow(t *testing.T) {
-	s := stack.NewStack(2)
+func TestLinkStackOverflow(t *testing.T) {
+	s := stack.NewLinkStack(2)
 	s.Push(10)
 	s.Push(120)
 	err := s.Push(101)
@@ -28,8 +28,8 @@ func TestStackOverflow(t *testing.T) {
 	t.Log(err)
 }
 
-func TestStackUnderflow(t *testing.T) {
-	s := stack.NewStack(2)
+func TestLinkedStackUnderflow(t *testing.T) {
+	s := stack.NewLinkStack(2)
 	s.Push(10)
 
 	s.Pop()
