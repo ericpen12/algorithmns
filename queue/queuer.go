@@ -7,10 +7,12 @@ type queuer interface {
 
 func NewArrayQueue(size int) queuer {
 	arr := make([]int, size)
-	return &arrayqueue{
-		head:  1,
-		tail:  1,
-		len:   size,
-		array: &arr,
-	}
+	return &arrayqueue{1,1, size,&arr}
+}
+
+func NewLinkedQueue(size int) queuer {
+	tail := new(linkedNode)
+	head := &linkedNode{0, nil, tail}
+	tail.Prev = head
+	return &linkedqueue{head, tail, 0, size}
 }

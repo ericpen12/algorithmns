@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestNewQueue(t *testing.T) {
+func TestNewArrayQueue(t *testing.T) {
 	queue := queue2.NewArrayQueue(20)
 
 	for i := 0; i < 10; i++ {
@@ -23,7 +23,7 @@ func TestNewQueue(t *testing.T) {
 	}
 }
 
-func TestQueueOverflow(t *testing.T) {
+func TestArrayQueueOverflow(t *testing.T) {
 	queue := queue2.NewArrayQueue(2)
 	queue.Enqueue(1)
 	queue.Enqueue(2)
@@ -34,7 +34,7 @@ func TestQueueOverflow(t *testing.T) {
 	t.Log(err)
 }
 
-func TestQueueUnderflow(t *testing.T) {
+func TestArrayQueueUnderflow(t *testing.T) {
 	queue := queue2.NewArrayQueue(2)
 	queue.Enqueue(1)
 	queue.Enqueue(2)
