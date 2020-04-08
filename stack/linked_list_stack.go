@@ -7,29 +7,14 @@ type linkedNode struct {
 	Next *linkedNode
 }
 
-type stack struct {
+type linkedstack struct {
 	top  int
 	len  int
 	cap  int
 	head *linkedNode
 }
 
-type stacker interface {
-	Push(n int) error
-	Pop() (int, error)
-	IsEmpty() bool
-}
-
-func NewStack(size int) stacker {
-	return &stack{
-		top:  0,
-		len:  0,
-		cap: size,
-		head: new(linkedNode),
-	}
-}
-
-func (s *stack) Push(n int) error {
+func (s *linkedstack) Push(n int) error {
 	if s.len > s.cap {
 		return errors.New("stack overflow")
 	}
@@ -39,7 +24,7 @@ func (s *stack) Push(n int) error {
 	return nil
 }
 
-func (s *stack) Pop() (int, error) {
+func (s *linkedstack) Pop() (int, error) {
 	if s.len == 0 {
 		return 0, errors.New("stack underflow")
 	}
@@ -50,6 +35,6 @@ func (s *stack) Pop() (int, error) {
 	return node.Val, nil
 }
 
-func (s *stack) IsEmpty() bool {
+func (s *linkedstack) IsEmpty() bool {
 	return s.len == 0
 }
