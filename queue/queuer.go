@@ -7,7 +7,7 @@ type queuer interface {
 
 func NewArrayQueue(size int) queuer {
 	arr := make([]int, size)
-	return &arrayqueue{1,1, size,&arr}
+	return &arrayqueue{1, 1, size, arr}
 }
 
 func NewLinkedQueue(size int) queuer {

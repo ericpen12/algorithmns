@@ -9,7 +9,7 @@ func TestNewArrayQueue(t *testing.T) {
 	queue := queue2.NewArrayQueue(20)
 
 	for i := 0; i < 10; i++ {
-		queue.Enqueue(i)
+		_ = queue.Enqueue(i)
 	}
 
 	for i := 0; i < 10; i++ {
@@ -25,8 +25,8 @@ func TestNewArrayQueue(t *testing.T) {
 
 func TestArrayQueueOverflow(t *testing.T) {
 	queue := queue2.NewArrayQueue(2)
-	queue.Enqueue(1)
-	queue.Enqueue(2)
+	_ = queue.Enqueue(1)
+	_ = queue.Enqueue(2)
 	err := queue.Enqueue(3)
 	if err == nil || err.Error() != "queue overflow" {
 		t.Error("without underflow")
@@ -36,10 +36,10 @@ func TestArrayQueueOverflow(t *testing.T) {
 
 func TestArrayQueueUnderflow(t *testing.T) {
 	queue := queue2.NewArrayQueue(2)
-	queue.Enqueue(1)
-	queue.Enqueue(2)
-	queue.Dequeue()
-	queue.Dequeue()
+	_ = queue.Enqueue(1)
+	_ = queue.Enqueue(2)
+	_, _ = queue.Dequeue()
+	_, _ = queue.Dequeue()
 	_, err := queue.Dequeue()
 
 	if err == nil || err.Error() != "queue underflow" {
